@@ -22,7 +22,6 @@
     "angular-inview": "^2.0.0-beta.1",
     "gsap": "^3.12.5",
     "rxjs": "~7.8.0",
-    "split-type": "^0.3.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

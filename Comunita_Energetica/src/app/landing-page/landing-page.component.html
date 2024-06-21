@@ -97,16 +97,14 @@
 
         <!-- ?BOTTOM RIGHT TEXT? -->
         <section class="arrow-down">
-            <a href="landingPage#main">
-                <span>Esplora</span>
-            </a>
+            <span>Esplora</span>
             <iframe src="https://lottie.host/embed/bae84126-51f6-470d-b566-a7caab9ae8dc/kx5zSKY3o6.json"></iframe>
         </section>
     </header>
     
     
     <!-- !MAIN! -->
-    <main id="main">
+    <main>
         <!-- ?DIVIDER? -->
         <div class="description-divider-top">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -118,11 +116,8 @@
 
         <!-- ?DESCRIPTION? -->
         <div class="container">
-            <div class="container description hidden-para" 
-            (appInViewport)="$event"
-            [inViewportOptions]="'{ &quot;threshold&quot;: [0] }'"
-            [className]="'active-para'">
-                <h4>
+            <div class="container description">
+                <h4 class="animatedText">
                     Dai sfogo alla tua creatività e cimentati in nuove sfide creando una città che si mantenga tramite la compra/vendita di energia elettrica fino a raggiungere l'indipendenza dalla necessità di acquisto da fonti esterne.
                 </h4>
             </div>
@@ -149,9 +144,18 @@
         <!-- ?CREATE SIM? -->
         <section class="section container create-sim">
             <div class="create-title">
-                <h2 class="animatedText"
-                (appInViewport)="animateText()"
-                #animatedText>Rompi i limiti della tua immaginazione</h2>
+                <h2>Rompi i limiti della tua immaginazione</h2>
+            </div>
+
+            <div class="create-content">
+                <div class="create-info">
+                    <p class="para">Ogni giorno migliaia di persone danno spazio alle loro idee.</p>
+                </div>
+                <div class="create-btn">
+                    <hover-button [className]="'btn-light'">
+                        <h4 #content>CREA LA TUA CITT&Agrave;</h4>
+                    </hover-button>
+                </div>
             </div>
         </section>
 

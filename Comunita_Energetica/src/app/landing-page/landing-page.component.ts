@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Application } from '@splinetool/runtime';
 import gsap from 'gsap';
-import SplitType from 'split-type'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
@@ -10,23 +9,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./landing-page.component.css']
 })
 
-export class LandingPageComponent implements OnInit, AfterViewInit {
+export class LandingPageComponent implements OnInit, AfterContentChecked {
     @ViewChild('burger', { static: true }) burger!: ElementRef;
     @ViewChild('canvas', { static: true }) canvas!: ElementRef;
 
     isBurgerActive: boolean = false;
-    isDescActive: boolean = false;
-
-    lines!: HTMLElement[] | null;    
     
     ngOnInit(): void {
         this.loadCanvas();
         this.showBurger();
     };
     
-    ngAfterViewInit(): void {
-        const animatedText: SplitType = new SplitType('.animatedText', { types: 'lines'});
-        this.lines = animatedText.lines;
+    ngAfterContentChecked(): void {
+        
     }
 
     showBurger(): void {
@@ -48,12 +43,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
     loadCanvas = () => {
         const app = new Application(this.canvas.nativeElement);
-        app.load('https://prod.spline.design/BG4bjPoQSPboMO2Y/scene.splinecode');
+        // app.load('https://prod.spline.design/BG4bjPoQSPboMO2Y/scene.splinecode');
+        app.load('../assets/3d_obj/room_relaxing_copy.spline');
     };
-
-    animateText = () => {
-        gsap.fromTo(this.lines, 
-            {y: 100, opacity: 0},
-            {y: 0, opacity: 1, stagger: 0.3, delay: 0.3, duration: 1.5, ease: 'power4.out'});
-    }
 }
